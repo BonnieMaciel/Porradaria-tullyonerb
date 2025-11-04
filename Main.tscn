@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bq8u4j6ttthae"]
+
+[ext_resource type="PackedScene" uid="uid://csviawr0y6nt8" path="res://juca.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://bywg7oxa2dtdf" path="res://button.gd" id="2_uu6xs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glv2v"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_uu6xs"]
+sky_material = SubResource("ProceduralSkyMaterial_glv2v")
+
+[sub_resource type="Environment" id="Environment_r0du0"]
+background_mode = 2
+sky = SubResource("Sky_uu6xs")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uu6xs"]
+size = Vector2(20, 20)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r0du0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_uu6xs")
+
+[node name="Juca" parent="." instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3197627, 0, 0.59470177)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 339.0
+offset_bottom = 95.0
+text = "Adicionar imagem"
+script = ExtResource("2_uu6xs")
+
+[node name="FileDialog" type="FileDialog" parent="Control/Button"]
+oversampling_override = 1.0
+mode = 2
+title = "Open a File"
+position = Vector2i(41, 69)
+size = Vector2i(540, 360)
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 119.0
+offset_right = 339.0
+offset_bottom = 150.0
+placeholder_text = "Nome do personagem"
+
+[connection signal="button_up" from="Control/Button" to="Control/Button" method="_on_button_up"]
+[connection signal="file_selected" from="Control/Button/FileDialog" to="Control/Button" method="_on_file_dialog_file_selected"]
+[connection signal="text_changed" from="Control/LineEdit" to="Juca" method="_on_line_edit_text_changed"]
