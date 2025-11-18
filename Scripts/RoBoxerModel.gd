@@ -31,4 +31,3 @@ func _ready() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	var n_anim_index = randi_range(0,len(animationList) - 1)
 	AP.play(animationList[n_anim_index])
-	pass # Replace with function body.

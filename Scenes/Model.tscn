@@ -47,4 +47,5 @@ bone_idx = 2
 [node name="AnimationPlayer" parent="." index="1"]
 blend_times = [&"Idle", &"Punch_R", 0.2, &"Idle", &"walk", 0.2, &"Punch_R", &"Idle", 0.2, &"Punch_R", &"walk", 0.2, &"walk", &"Idle", 0.2, &"walk", &"Punch_R", 0.2]
 
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
