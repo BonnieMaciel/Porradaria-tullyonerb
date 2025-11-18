@@ -22,6 +22,7 @@ PlayerConfig="*res://player_config.gd"
 [global_group]
 
 camera=""
+Roboxer=""
 
 [rendering]
 

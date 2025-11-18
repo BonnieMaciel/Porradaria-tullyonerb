@@ -1,7 +1,11 @@
 extends Node
 
-var player_one_node = null
+const numberOfPlayers = 2
+var playerList: Array[Player]
 
-var player_one_texture = null:
-	set(value):
-		player_one_node.changeImage(value)
+var roboxerController: RoboxerController
+
+func _ready() -> void:
+	for playerNumber in range(numberOfPlayers):
+		var player = Player.new()
+		playerList.append(player)

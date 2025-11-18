@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq8u4j6ttthae"]
+[gd_scene load_steps=9 format=3 uid="uid://bq8u4j6ttthae"]
 
-[ext_resource type="PackedScene" uid="uid://csviawr0y6nt8" path="res://juca.tscn" id="1_glv2v"]
-[ext_resource type="Script" uid="uid://bywg7oxa2dtdf" path="res://button.gd" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://cq871h2jgfly7" path="res://Scripts/MainMenu/main.gd" id="1_cm0pq"]
+[ext_resource type="Script" uid="uid://bywg7oxa2dtdf" path="res://Scripts/button.gd" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://jd62yhn2aogi" path="res://Scripts/RoboxerController.gd" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://l8v224bpgm7x" path="res://Scenes/ro_boxer.tscn" id="3_r0du0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glv2v"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,28 +20,16 @@ tonemap_mode = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_uu6xs"]
 size = Vector2(20, 20)
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
+script = ExtResource("1_cm0pq")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_r0du0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_uu6xs")
-
-[node name="Juca" parent="." instance=ExtResource("1_glv2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3197627, 0, 0.59470177)
-
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="Button" parent="UI"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 23.0
@@ -48,7 +38,7 @@ offset_bottom = 95.0
 text = "Adicionar imagem"
 script = ExtResource("2_uu6xs")
 
-[node name="FileDialog" type="FileDialog" parent="Control/Button"]
+[node name="FileDialog" type="FileDialog" parent="UI/Button"]
 oversampling_override = 1.0
 mode = 2
 title = "Open a File"
@@ -58,7 +48,7 @@ file_mode = 0
 access = 2
 filters = PackedStringArray("*.png", "*.jpg")
 
-[node name="LineEdit" type="LineEdit" parent="Control"]
+[node name="LineEdit" type="LineEdit" parent="UI"]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 119.0
@@ -66,6 +56,27 @@ offset_right = 339.0
 offset_bottom = 150.0
 placeholder_text = "Nome do personagem"
 
-[connection signal="button_up" from="Control/Button" to="Control/Button" method="_on_button_up"]
-[connection signal="file_selected" from="Control/Button/FileDialog" to="Control/Button" method="_on_file_dialog_file_selected"]
-[connection signal="text_changed" from="Control/LineEdit" to="Juca" method="_on_line_edit_text_changed"]
+[node name="Enviroment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
+environment = SubResource("Environment_r0du0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="Enviroment"]
+mesh = SubResource("PlaneMesh_uu6xs")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.44657266, -0.3188402, 0.8360107, 5.7443295e-10, 0.93435377, 0.35634664, -0.89474726, -0.15913466, 0.41725677, 1.644924, 3.0377235, 3.6067142)
+
+[node name="RoboxerController" type="Node3D" parent="."]
+script = ExtResource("3_cm0pq")
+
+[node name="RoBoxer" parent="RoboxerController" instance=ExtResource("3_r0du0")]
+
+[connection signal="button_up" from="UI/Button" to="UI/Button" method="_on_button_up"]
+[connection signal="file_selected" from="UI/Button/FileDialog" to="UI/Button" method="_on_file_dialog_file_selected"]
+[connection signal="text_changed" from="UI/LineEdit" to="UI/Button" method="_on_line_edit_text_changed"]
