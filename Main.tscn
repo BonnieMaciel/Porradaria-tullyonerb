@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq8u4j6ttthae"]
+[gd_scene load_steps=10 format=3 uid="uid://bq8u4j6ttthae"]
 
 [ext_resource type="Script" uid="uid://cq871h2jgfly7" path="res://Scripts/MainMenu/main.gd" id="1_cm0pq"]
+[ext_resource type="AudioStream" uid="uid://udy4xdm8ruxn" path="res://Sounds/Music/Songs/punchout_wii_theme.ogg" id="2_fos0i"]
 [ext_resource type="Script" uid="uid://bywg7oxa2dtdf" path="res://Scripts/button.gd" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://jd62yhn2aogi" path="res://Scripts/RoboxerController.gd" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://l8v224bpgm7x" path="res://Scenes/ro_boxer.tscn" id="3_r0du0"]
@@ -20,8 +21,10 @@ tonemap_mode = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_uu6xs"]
 size = Vector2(20, 20)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("SpringArm")]
 script = ExtResource("1_cm0pq")
+Song = ExtResource("2_fos0i")
+SpringArm = NodePath("SpringArm3D")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -69,8 +72,12 @@ shadow_enabled = true
 mesh = SubResource("PlaneMesh_uu6xs")
 skeleton = NodePath("../..")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.44657266, -0.3188402, 0.8360107, 5.7443295e-10, 0.93435377, 0.35634664, -0.89474726, -0.15913466, 0.41725677, 1.644924, 3.0377235, 3.6067142)
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+spring_length = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, -2)
 
 [node name="RoboxerController" type="Node3D" parent="."]
 script = ExtResource("3_cm0pq")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8ks3syedo77d"]
+
+[ext_resource type="Script" uid="uid://cellxdtqb7jxu" path="res://Scenes/Transitions/Transitions.gd" id="1_6psjh"]
+[ext_resource type="Texture2D" uid="uid://drywm67jsngq5" path="res://Scenes/Transitions/BlackTransitionTexture.tres" id="2_14818"]
+[ext_resource type="AnimationLibrary" uid="uid://i5wnaeiknus8" path="res://Scenes/Transitions/Transitions_AnimPlayer.res" id="3_m4p78"]
+
+[sub_resource type="Animation" id="Animation_m4p78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 323.99997)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hir7x"]
+_data = {
+&"RESET": SubResource("Animation_m4p78")
+}
+
+[node name="Transitions" type="CanvasLayer"]
+script = ExtResource("1_6psjh")
+
+[node name="TransitionSprite" type="Sprite2D" parent="."]
+position = Vector2(576, 323.99997)
+scale = Vector2(5.446396, 691.81085)
+skew = 0.3577925
+texture = ExtResource("2_14818")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hir7x"),
+&"Transitions": ExtResource("3_m4p78")
+}
+speed_scale = 2.0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://crnjf6b700xqv"]
+
+[ext_resource type="Script" uid="uid://dedrkrhlspuls" path="res://Sounds/Music/MusicEngine/MusicEngine.gd" id="1_1ggqg"]
+
+[node name="MusicEngine" type="Node" node_paths=PackedStringArray("Intro", "Loop")]
+script = ExtResource("1_1ggqg")
+Intro = NodePath("MusicIntro")
+Loop = NodePath("MusicLoop")
+
+[node name="MusicIntro" type="AudioStreamPlayer" parent="."]
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
