@@ -17,4 +17,4 @@ func _ready() -> void:
 func GoToCharCustom():
 	Transitions.LevelOut_Black()
 	await Transitions.TransitionOutFinished
-	get_tree().change_scene_to_file("res://Main.tscn")
+	SceneManager.ChangeToScene(1)

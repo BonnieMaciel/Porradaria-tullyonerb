@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SceneEntry" load_steps=2 format=3 uid="uid://cir7esiy8w4ay"]
+
+[ext_resource type="Script" uid="uid://wumqd85p22b8" path="res://Scenes/00.SceneManager/SceneEntry/SceneEntry.gd" id="1_ftk7g"]
+
+[resource]
+script = ExtResource("1_ftk7g")
+ScenePath = "res://Scenes/MainMenu/MainMenu.tscn"
+metadata/_custom_type_script = "uid://wumqd85p22b8"

@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerConfig="*res://player_config.gd"
+PlayerConfig="*res://Scenes/CharacterEditor/player_config.gd"
 MusicEngine="*res://Sounds/Music/MusicEngine/MusicEngine.tscn"
 Transitions="*res://Scenes/Transitions/Transitions.tscn"
+SceneManager="*res://Scenes/00.SceneManager/SceneManager.tscn"
 
 [global_group]
 

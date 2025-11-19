@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SceneEntry" load_steps=2 format=3 uid="uid://jfme6vukoe7y"]
+
+[ext_resource type="Script" uid="uid://wumqd85p22b8" path="res://Scenes/00.SceneManager/SceneEntry/SceneEntry.gd" id="1_cau54"]
+
+[resource]
+script = ExtResource("1_cau54")
+ID = 1
+ScenePath = "res://Scenes/CharacterEditor/CharacterEditor.tscn"
+metadata/_custom_type_script = "uid://wumqd85p22b8"

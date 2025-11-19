@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnfmtwh60mmb2"]
+
+[ext_resource type="Script" uid="uid://c3o1jdjn4opqj" path="res://Scenes/00.SceneManager/SceneManager.gd" id="1_fcxxv"]
+[ext_resource type="Script" uid="uid://wumqd85p22b8" path="res://Scenes/00.SceneManager/SceneEntry/SceneEntry.gd" id="2_5402s"]
+[ext_resource type="Resource" uid="uid://cir7esiy8w4ay" path="res://Scenes/00.SceneManager/SceneEntry/MainMenu.tres" id="3_1h3n5"]
+[ext_resource type="Resource" uid="uid://jfme6vukoe7y" path="res://Scenes/00.SceneManager/SceneEntry/CharacterEditor.tres" id="4_1h3n5"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_fcxxv")
+SceneEntries = Array[ExtResource("2_5402s")]([ExtResource("3_1h3n5"), ExtResource("4_1h3n5")])

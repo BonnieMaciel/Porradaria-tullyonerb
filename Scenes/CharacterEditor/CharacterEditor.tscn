@@ -21,23 +21,34 @@ tonemap_mode = 2
 [sub_resource type="PlaneMesh" id="PlaneMesh_uu6xs"]
 size = Vector2(20, 20)
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("SpringArm")]
+[node name="CharacterEditor" type="Node3D" node_paths=PackedStringArray("SpringArm", "ReturnToMenuButton")]
 script = ExtResource("1_cm0pq")
-Song = ExtResource("2_fos0i")
 SpringArm = NodePath("SpringArm3D")
+ReturnToMenuButton = NodePath("UI/BackButton")
+Song = ExtResource("2_fos0i")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 80.0
+offset_bottom = 80.0
+text = "<-"
 
 [node name="Button" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 23.0
-offset_right = 339.0
-offset_bottom = 95.0
+offset_left = 32.0
+offset_top = 88.0
+offset_right = 320.0
+offset_bottom = 160.0
 text = "Adicionar imagem"
 script = ExtResource("2_uu6xs")
 
@@ -53,10 +64,10 @@ filters = PackedStringArray("*.png", "*.jpg")
 
 [node name="LineEdit" type="LineEdit" parent="UI"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 119.0
-offset_right = 339.0
-offset_bottom = 150.0
+offset_left = 32.0
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 199.0
 placeholder_text = "Nome do personagem"
 
 [node name="Enviroment" type="Node3D" parent="."]
