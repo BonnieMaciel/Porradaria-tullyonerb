@@ -5,11 +5,14 @@ extends Control
 @export_category("Title")
 @export var TitleLabel: Label
 @export var SubtitleLable: Label
+@export_category("Sounds")
+@export var Song: AudioStream
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Transitions.LevelIn_Black()
 	CharacterCustomizationButton.button_up.connect(GoToCharCustom)
+	MusicEngine.PlayMusic(Song)
 
 func GoToCharCustom():
 	Transitions.LevelOut_Black()

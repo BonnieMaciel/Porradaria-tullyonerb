@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmlsm06gpicww"]
+[gd_scene load_steps=5 format=3 uid="uid://dmlsm06gpicww"]
 
 [ext_resource type="LabelSettings" uid="uid://ct2s2r0t2cqfh" path="res://Scenes/MainMenu/TitleLabel.tres" id="1_cdkru"]
 [ext_resource type="Script" uid="uid://i6xk2mot76xj" path="res://Scenes/MainMenu/MainMenu.gd" id="1_sg7ab"]
 [ext_resource type="LabelSettings" uid="uid://bqedglvsbs1ur" path="res://Scenes/MainMenu/Text_Small.tres" id="2_c7oo3"]
+[ext_resource type="AudioStream" uid="uid://03xx7smo1pqv" path="res://Sounds/Music/Songs/fpa_w1r_cave.ogg" id="2_kpx3y"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("CharacterCustomizationButton", "TitleLabel", "SubtitleLable")]
 layout_mode = 3
@@ -15,6 +16,7 @@ script = ExtResource("1_sg7ab")
 CharacterCustomizationButton = NodePath("Button")
 TitleLabel = NodePath("TitleLabel")
 SubtitleLable = NodePath("TitleLabel/SubtitleLabel")
+Song = ExtResource("2_kpx3y")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
