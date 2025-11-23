@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfacraqgbfr4o"]
+
+[ext_resource type="Script" uid="uid://cag6fpisgx3lm" path="res://Scripts/character_selection.gd" id="1_edx04"]
+[ext_resource type="Script" uid="uid://j8jm1sn4hghv" path="res://Scripts/players_grid.gd" id="1_vb4fh"]
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_edx04")
+metadata/_edit_horizontal_guides_ = [600.0, 544.0]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.19800001
+anchor_right = 0.056
+anchor_bottom = 0.19800001
+offset_left = -0.51200104
+offset_top = -88.304016
+offset_right = 55.488
+offset_bottom = -32.304016
+text = "<-"
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.20320989
+anchor_right = 0.944
+anchor_bottom = 0.79044443
+offset_left = -0.51200104
+offset_top = -3.680008
+offset_right = 0.5119629
+offset_bottom = -0.20800781
+grow_horizontal = 2
+grow_vertical = 2
+max_columns = 10
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(150, 150)
+script = ExtResource("1_vb4fh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.94500005
+anchor_top = 0.79
+anchor_right = 0.94500005
+anchor_bottom = 0.79
+offset_left = -112.640015
+offset_top = 32.079987
+offset_right = 0.35998535
+offset_bottom = 87.07999
+text = "Começar!"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.79
+anchor_right = 0.056
+anchor_bottom = 0.79
+offset_left = -0.51200104
+offset_top = 32.079987
+offset_right = 127.488
+offset_bottom = 88.07999
+grow_vertical = 0
+text = "Criar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

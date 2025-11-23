@@ -10,10 +10,9 @@ extends Node3D
 @export_group("Music")
 @export var Song: AudioStream
 
+@export var newPlayer = Player.new()
+
 func  _ready() -> void:
-	var callable = Callable(self, "choosePlayer")
-	PlayerConfig.roboxerController.conditionFunction = callable
-	
 	Transitions.LevelIn_Black()
 	MusicEngine.PlayMusic(Song)
 	
