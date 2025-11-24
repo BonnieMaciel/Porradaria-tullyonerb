@@ -21,10 +21,9 @@ func  _ready() -> void:
 func GoToMenu():
 	Transitions.LevelOut_Black()
 	await Transitions.TransitionOutFinished
-	SceneManager.ChangeToScene(0)
+	SceneManager.ChangeToScene(2)
 
 func _process(_delta: float) -> void:
-	RotateCamera()
 	
 	if Input.is_action_just_pressed("Escape"):
 		GoToMenu()

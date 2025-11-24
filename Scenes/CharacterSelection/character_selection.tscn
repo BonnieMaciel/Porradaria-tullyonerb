@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfacraqgbfr4o"]
+[gd_scene load_steps=5 format=3 uid="uid://bfacraqgbfr4o"]
 
 [ext_resource type="Script" uid="uid://cag6fpisgx3lm" path="res://Scripts/character_selection.gd" id="1_edx04"]
 [ext_resource type="Script" uid="uid://j8jm1sn4hghv" path="res://Scripts/players_grid.gd" id="1_vb4fh"]
+[ext_resource type="AudioStream" uid="uid://03xx7smo1pqv" path="res://Sounds/Music/Songs/fpa_w1r_cave.ogg" id="2_8tu12"]
+[ext_resource type="Texture2D" uid="uid://dsysrrscog3d1" path="res://icon.svg" id="3_mr0lq"]
 
 [node name="CharacterSelection" type="Control"]
 layout_mode = 3
@@ -11,7 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_edx04")
-metadata/_edit_horizontal_guides_ = [600.0, 544.0]
+Song = ExtResource("2_8tu12")
+metadata/_edit_horizontal_guides_ = [600.0, 544.0, 320.0]
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -32,7 +35,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
 anchor_top = 0.20320989
-anchor_right = 0.944
+anchor_right = 0.55511117
 anchor_bottom = 0.79044443
 offset_left = -0.51200104
 offset_top = -3.680008
@@ -74,5 +77,109 @@ offset_bottom = 88.07999
 grow_vertical = 0
 text = "Criar"
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.49400002
+anchor_right = 0.55600005
+anchor_bottom = 0.49400002
+offset_left = 255.48792
+offset_top = -64.112
+offset_right = 383.4879
+offset_bottom = 63.888
+texture = ExtResource("3_mr0lq")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.49400002
+anchor_right = 0.55600005
+anchor_bottom = 0.49400002
+offset_left = 63.487915
+offset_top = -64.112
+offset_right = 191.48792
+offset_bottom = 63.888
+texture = ExtResource("3_mr0lq")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.648
+anchor_right = 0.55600005
+anchor_bottom = 0.648
+offset_left = 255.48792
+offset_top = -27.903992
+offset_right = 383.4879
+offset_bottom = 28.096008
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.648
+anchor_right = 0.55600005
+anchor_bottom = 0.648
+offset_left = 63.487915
+offset_top = -27.903992
+offset_right = 191.48792
+offset_bottom = 28.096008
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.49400002
+anchor_right = 0.55600005
+anchor_bottom = 0.49400002
+offset_left = 191.48792
+offset_top = -16.112
+offset_right = 255.48792
+offset_bottom = 14.8880005
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player2Selection" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.49400002
+anchor_right = 0.55600005
+anchor_bottom = 0.49400002
+offset_left = 255.48792
+offset_top = -64.112
+offset_right = 383.4879
+offset_bottom = 63.888
+flat = true
+
+[node name="Player1Selection" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55600005
+anchor_top = 0.49400002
+anchor_right = 0.55600005
+anchor_bottom = 0.49400002
+offset_left = 63.487915
+offset_top = -64.112
+offset_right = 191.48792
+offset_bottom = 63.888
+flat = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Player2Selection" to="." method="_on_player_2_selection_pressed"]
+[connection signal="pressed" from="Player1Selection" to="." method="_on_player_1_selection_pressed"]

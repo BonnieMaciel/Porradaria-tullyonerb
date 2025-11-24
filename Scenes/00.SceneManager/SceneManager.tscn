@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnfmtwh60mmb2"]
+[gd_scene load_steps=7 format=3 uid="uid://bnfmtwh60mmb2"]
 
 [ext_resource type="Script" uid="uid://c3o1jdjn4opqj" path="res://Scenes/00.SceneManager/SceneManager.gd" id="1_fcxxv"]
 [ext_resource type="Script" uid="uid://wumqd85p22b8" path="res://Scenes/00.SceneManager/SceneEntry/SceneEntry.gd" id="2_5402s"]
@@ -11,6 +11,12 @@ ID = 2
 ScenePath = "res://Scenes/CharacterSelection/character_selection.tscn"
 metadata/_custom_type_script = "uid://wumqd85p22b8"
 
+[sub_resource type="Resource" id="Resource_67xw2"]
+script = ExtResource("2_5402s")
+ID = 3
+ScenePath = "res://Scenes/Ring/node_3d.tscn"
+metadata/_custom_type_script = "uid://wumqd85p22b8"
+
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_fcxxv")
-SceneEntries = Array[ExtResource("2_5402s")]([ExtResource("3_1h3n5"), ExtResource("4_1h3n5"), SubResource("Resource_1h3n5")])
+SceneEntries = Array[ExtResource("2_5402s")]([ExtResource("3_1h3n5"), ExtResource("4_1h3n5"), SubResource("Resource_1h3n5"), SubResource("Resource_67xw2")])

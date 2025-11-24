@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var TransitionSprite: Sprite2D = $TransitionSprite
 @onready var AnimPlayer: AnimationPlayer = $AnimationPlayer
 
 signal TransitionInFinished
@@ -15,6 +14,6 @@ func LevelIn_Black():
 	TransitionInFinished.emit()
 
 func LevelOut_Black():
-	AnimPlayer.play_backwards("Transitions/TransitionAnimation")
+	AnimPlayer.play("Transitions/TransitionAnimationBack")
 	await AnimPlayer.animation_finished
 	TransitionOutFinished.emit()

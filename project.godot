@@ -22,6 +22,7 @@ MusicEngine="*res://Sounds/Music/MusicEngine/MusicEngine.tscn"
 Transitions="*res://Scenes/Transitions/Transitions.tscn"
 SceneManager="*res://Scenes/00.SceneManager/SceneManager.tscn"
 SaveSystem="*res://Scripts/save_system.gd"
+Players="*res://Scripts/players.gd"
 
 [global_group]
 

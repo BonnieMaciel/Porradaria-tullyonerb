@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckswedjavhmof"]
+
+[ext_resource type="Script" uid="uid://bmteg8hxcmokd" path="res://Scripts/Ring/Ring.gd" id="1_dcdiw"]
+[ext_resource type="PackedScene" uid="uid://l8v224bpgm7x" path="res://Scenes/ro_boxer.tscn" id="1_r3i3d"]
+[ext_resource type="AudioStream" uid="uid://udy4xdm8ruxn" path="res://Sounds/Music/Songs/punchout_wii_theme.ogg" id="2_dxgsg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r3i3d"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dcdiw"]
+sky_material = SubResource("ProceduralSkyMaterial_r3i3d")
+
+[sub_resource type="Environment" id="Environment_dxgsg"]
+background_mode = 2
+sky = SubResource("Sky_dcdiw")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_dcdiw"]
+size = Vector3(10, 1, 10)
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("roboxer_1", "roboxer_2")]
+script = ExtResource("1_dcdiw")
+roboxer_1 = NodePath("Node3D/RoBoxer")
+roboxer_2 = NodePath("Node3D/RoBoxer2")
+Song = ExtResource("2_dxgsg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dxgsg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.2221956e-08, 0.25881907, -0.9659258, 1.1313338e-08, 0.9659259, 0.25881907, 1, 8.579145e-16, -4.371139e-08, -3, 3.4490921, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dcdiw")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44909215, 0)
+
+[node name="RoBoxer" parent="Node3D" instance=ExtResource("1_r3i3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RoBoxer2" parent="Node3D" instance=ExtResource("1_r3i3d")]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 0, 0, 2)
